@@ -36,6 +36,7 @@ The project is organized as follows:
 
 For Permutation, I try to follow this idea, by fixing the character, and swap recursively
 
+
 ![Permutation](https://media.geeksforgeeks.org/wp-content/cdn-uploads/NewPermutation.gif)
 
 ## Run Locally

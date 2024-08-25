@@ -17,8 +17,8 @@ describe('PermutationsService', () => {
   });
 
   it('Method Two should generate permutations based on input text', () => {
-    // expect(service.generatePermutationMethodTwo('a')).toEqual(['a']);
-    // expect(service.generatePermutationMethodTwo('ab')).toEqual(['ab', 'ba']);
+    expect(service.generatePermutationMethodTwo('a')).toEqual(['a']);
+    expect(service.generatePermutationMethodTwo('ab')).toEqual(['ab', 'ba']);
     expect(service.generatePermutationMethodTwo('abc')).toEqual([
       'abc',
       'acb',
@@ -27,13 +27,13 @@ describe('PermutationsService', () => {
       'cab',
       'cba',
     ]);
-    // expect(service.generatePermutationMethodTwo('aabb')).toEqual([
-    //   'aabb',
-    //   'abab',
-    //   'abba',
-    //   'baab',
-    //   'baba',
-    //   'bbaa',
-    // ]);
+    expect(service.generatePermutationMethodTwo('aabb')).toEqual([
+      'aabb',
+      'abab',
+      'abba',
+      'baab',
+      'baba',
+      'bbaa',
+    ]);
   });
 });

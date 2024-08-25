@@ -4,37 +4,34 @@ import { UpdatePermutationDto } from './dto/update-permutation.dto';
 
 @Injectable()
 export class PermutationsService {
-
   generatePermutationMethodTwo(str: string): string[] {
-    console.log('str', str)
-
     // BASE CASE to return in case there is only one string
     if (str.length <= 1) {
       return [str];
     }
 
     const permutations: Set<string> = new Set();
-    
-    for (let i = 0; i < str.length; i++) {
 
-      
+    for (let i = 0; i < str.length; i++) {
       const char = str[i];
       const remainingString = str.slice(0, i) + str.slice(i + 1);
       // for example 'abc'
 
       // i = 0, char = "a", remainingString = "bc"
       // .. ..
-      const remainingPermutations = this.generatePermutationMethodTwo(remainingString);
+      const remainingPermutations =
+        this.generatePermutationMethodTwo(remainingString);
       // receive ["bc"]
 
       for (const perm of remainingPermutations) {
-      
         // combine "a" + "bc" => "abc"
         permutations.add(char + perm);
       }
     }
 
-    return Array.from(permutations);
+    const permutaionArray = Array.from(permutations);
+
+    return permutaionArray;
   }
 
   create(createPermutationDto: CreatePermutationDto) {

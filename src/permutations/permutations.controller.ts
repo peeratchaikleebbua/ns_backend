@@ -21,11 +21,6 @@ export class PermutationsController {
     return this.permutationsService.create(createPermutationDto);
   }
 
-  @Get()
-  generatePermutations(@Query('inputText') inputText: string): string[] {
-    return this.permutationsService.generatePermutations(inputText);
-  }
-
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.permutationsService.findOne(+id);

@@ -21,12 +21,6 @@ export class SmileFaceController {
     return this.smileFaceService.create(createSmileFaceDto);
   }
 
-  @Get()
-  countSmileFaces(@Query('faces') faces: string): number {
-    const faceList = faces.split(',');
-    return this.smileFaceService.countSmileFaces(faceList);
-  }
-
   @Get("methodTwo")
   countSmileFacesMethodTwo(@Query('faces') faces: string): number {
     const faceList = faces.split(',');

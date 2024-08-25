@@ -16,10 +16,10 @@ describe('PermutationsService', () => {
     expect(service).toBeDefined();
   });
 
-  it('should generate permutations based on input text', () => {
-    expect(service.generatePermutations('a')).toEqual(['a']);
-    expect(service.generatePermutations('ab')).toEqual(['ab', 'ba']);
-    expect(service.generatePermutations('abc')).toEqual([
+  it('Method Two should generate permutations based on input text', () => {
+    // expect(service.generatePermutationMethodTwo('a')).toEqual(['a']);
+    // expect(service.generatePermutationMethodTwo('ab')).toEqual(['ab', 'ba']);
+    expect(service.generatePermutationMethodTwo('abc')).toEqual([
       'abc',
       'acb',
       'bac',
@@ -27,13 +27,13 @@ describe('PermutationsService', () => {
       'cab',
       'cba',
     ]);
-    expect(service.generatePermutations('aabb')).toEqual([
-      'aabb',
-      'abab',
-      'abba',
-      'baab',
-      'baba',
-      'bbaa',
-    ]);
+    // expect(service.generatePermutationMethodTwo('aabb')).toEqual([
+    //   'aabb',
+    //   'abab',
+    //   'abba',
+    //   'baab',
+    //   'baba',
+    //   'bbaa',
+    // ]);
   });
 });

@@ -5,30 +5,36 @@ import { UpdatePermutationDto } from './dto/update-permutation.dto';
 @Injectable()
 export class PermutationsService {
 
-  generatePermutations(input: string): string[] {
-    const permute = (str: string, l: number, r: number, result: Set<string>) => {
-      if (l === r) {
-        result.add(str);
-      } else {
-        for (let i = l; i <= r; i++) {
-          str = this.swap(str, l, i);
-          permute(str, l + 1, r, result);
-          str = this.swap(str, l, i);
-        }
+  generatePermutationMethodTwo(str: string): string[] {
+    console.log('str', str)
+
+    // BASE CASE to return in case there is only one string
+    if (str.length <= 1) {
+      return [str];
+    }
+
+    const permutations: Set<string> = new Set();
+    
+    for (let i = 0; i < str.length; i++) {
+
+      
+      const char = str[i];
+      const remainingString = str.slice(0, i) + str.slice(i + 1);
+      // for example 'abc'
+
+      // i = 0, char = "a", remainingString = "bc"
+      // .. ..
+      const remainingPermutations = this.generatePermutationMethodTwo(remainingString);
+      // receive ["bc"]
+
+      for (const perm of remainingPermutations) {
+      
+        // combine "a" + "bc" => "abc"
+        permutations.add(char + perm);
       }
-    };
+    }
 
-    const result = new Set<string>();
-    permute(input, 0, input.length - 1, result);
-    return Array.from(result).sort();
-  }
-
-  private swap(str: string, i: number, j: number): string {
-    const charArray = str.split('');
-    const temp = charArray[i];
-    charArray[i] = charArray[j];
-    charArray[j] = temp;
-    return charArray.join('');
+    return Array.from(permutations);
   }
 
   create(createPermutationDto: CreatePermutationDto) {

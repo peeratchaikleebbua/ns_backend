@@ -4,13 +4,6 @@ import { UpdateSmileFaceDto } from './dto/update-smile-face.dto';
 
 @Injectable()
 export class SmileFaceService {
-  private smileFaceRegexPattern = /^[:;][-~]?[)D]$/;
-
-  countSmileFaces(faceList: string[]): number {
-    return faceList.filter((face) => this.smileFaceRegexPattern.test(face))
-      .length;
-  }
-
   private isValidSmileFace(face: string): boolean {
     const validEyes = [':', ';'];
     const validNoses = ['-', '~'];
@@ -18,6 +11,7 @@ export class SmileFaceService {
 
     if (face.length === 2) {
       // In case Eyes + Mouth
+      // since it does not require to have nose
       return validEyes.includes(face[0]) && validMouths.includes(face[1]);
     } else if (face.length === 3) {
       // In case Eyes + Nose + Mouth
@@ -39,7 +33,7 @@ export class SmileFaceService {
       }
     }
 
-    return countValidSmileFace
+    return countValidSmileFace;
   }
 
   create(createSmileFaceDto: CreateSmileFaceDto) {

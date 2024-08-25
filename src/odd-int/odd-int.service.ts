@@ -4,8 +4,25 @@ import { UpdateOddIntDto } from './dto/update-odd-int.dto';
 
 @Injectable()
 export class OddIntService {
-  findOddInt(intList: number[]): number {
-    return intList.reduce((acc, curr) => acc ^ curr, 0);
+  findOddIntMethodTwo(intList: number[]): number {
+    // create a list to contain number
+    const uniqueNumbers: number[] = [];
+
+    for (const num of intList) {
+      // find the number in the list
+      const index = uniqueNumbers.indexOf(num);
+      if (index === -1) {
+        // if not found, add this number
+        // this will be responsible for checking odd times
+        uniqueNumbers.push(num);
+      } else {
+        // if found, remove this number from the list
+        // this will ensure, that there is no even times
+        uniqueNumbers.splice(index, 1);
+      }
+    }
+
+    return uniqueNumbers[0];
   }
 
   create(createOddIntDto: CreateOddIntDto) {

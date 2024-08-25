@@ -16,17 +16,10 @@ describe('SmileFaceService', () => {
     expect(service).toBeDefined();
   });
 
-  it('should count the smile face correctly in the list and return number', () => {
-    expect(service.countSmileFaces([':)', ';(', ';}', ':-D'])).toBe(2);
-    expect(service.countSmileFaces([';D', ':-(', ':-)', ';~)'])).toBe(3);
-    expect(service.countSmileFaces([';]', ':[', ';*', ':$', ';-D'])).toBe(1);
-    expect(service.countSmileFaces([])).toBe(0);
-  })
-
   it('Method Two should count the smile face correctly in the list and return number', () => {
-    expect(service.countSmileFacesMethodTwo([':)', ';(', ';}', ':-D'])).toBe(2);
-    expect(service.countSmileFacesMethodTwo([';D', ':-(', ':-)', ';~)'])).toBe(3);
-    expect(service.countSmileFacesMethodTwo([';]', ':[', ';*', ':$', ';-D'])).toBe(1);
-    expect(service.countSmileFacesMethodTwo([])).toBe(0);
+    expect(service.countSmileFacesMethodTwo([':)', ';(', ';}', ':-D'])).toEqual(2);
+    expect(service.countSmileFacesMethodTwo([';D', ':-(', ':-)', ';~)'])).toEqual(3);
+    expect(service.countSmileFacesMethodTwo([';]', ':[', ';*', ':$', ';-D'])).toEqual(1);
+    expect(service.countSmileFacesMethodTwo([])).toEqual(0);
   })
 });

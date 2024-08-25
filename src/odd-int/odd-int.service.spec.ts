@@ -16,10 +16,12 @@ describe('OddIntService', () => {
     expect(service).toBeDefined();
   });
 
-  it('should count the odd integer', () => {
-    expect(service.findOddInt([7])).toBe(7);
-    expect(service.findOddInt([0])).toBe(0);
-    expect(service.findOddInt([1, 1, 2])).toBe(2);
-    expect(service.findOddInt([1,2,2,3,3,3,4,3,3,3,2,2,1])).toBe(4);
-  })
+  it('method two should count the odd integer', () => {
+    expect(service.findOddIntMethodTwo([7])).toEqual(7);
+    expect(service.findOddIntMethodTwo([0])).toEqual(0);
+    expect(service.findOddIntMethodTwo([1, 1, 2])).toEqual(2);
+    expect(
+      service.findOddIntMethodTwo([1, 2, 2, 3, 3, 3, 4, 3, 3, 3, 2, 2, 1]),
+    ).toEqual(4);
+  });
 });

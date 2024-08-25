@@ -12,12 +12,6 @@ export class OddIntController {
     return this.oddIntService.create(createOddIntDto);
   }
 
-  @Get()
-  findOddInt(@Query('intList') intList: string): number {
-    const numArray = intList.split(',').map(Number)
-    return this.oddIntService.findOddInt(numArray);
-  }
-
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.oddIntService.findOne(+id);
